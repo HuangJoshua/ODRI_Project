@@ -1,0 +1,80 @@
+<mujoco model="edo_sim">
+  <compiler angle="radians" autolimits="true"/>
+  
+  add in default joint axis and control range
+
+  Add in default collison and render class
+
+  <default/>
+
+
+  <!-- Reference: 
+    https://edo.cloud/en/edo-robot/edo-robot-specs/ -->
+  add in joint class attributes here 
+  <default class= "largeMotionUnit">
+    <joint armature="insert value" damping="insert value"/>
+    <position kp="insert value" forcerange="insert"/>
+    <default class="largeMotionUnit_limited">
+      <joint range="-3.1415 3.1415"/>
+      <position ctrlrange="-3.1415 3.1415"/>
+    </default>
+    <defualt class="smallMotionUnit">
+    joint armature 
+    position kp 
+    </defualt>
+  </default>
+
+  <asset>
+
+  insert material characterisitcs here
+
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="link_1" file="link_1.STL"/>
+    <mesh name="link_2" file="link_2.STL"/>
+    <mesh name="link_3" file="link_3.STL"/>
+    <mesh name="link_4" file="link_4.STL"/>
+    <mesh name="link_5" file="link_5.STL"/>
+    <mesh name="link_6" file="link_6.STL"/>
+  </asset>
+
+  <worldbody>
+    Insert light body here 
+    Validate values for physical attributes 
+    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="base_link"/>
+    <body name="link_1" pos="0.057188 0.0059831 0.13343" quat="-2.59734e-06 -2.59735e-06 -0.707108 -0.707105" gravcomp="0">
+      <inertial pos="-0.00457049 0.303832 -0.00202866" quat="0.682882 0.680665 -0.181579 0.19338" mass="0.0785942" diaginertia="0.012387 0.0123869 6.66166e-05"/>
+      <joint name="joint_1" pos="0 0 0" axis="0 1 0"/>
+      <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="link_1"/>
+      <body name="link_2" pos="0 0.18967 0" quat="0.871819 0.429147 -0.22999 0.053563" gravcomp="0">
+        <inertial pos="-0.0168406 0.0713182 -0.0876822" quat="0.939575 0.335108 0.045281 0.0533919" mass="0.0785942" diaginertia="0.012387 0.0123869 6.66166e-05"/>
+        <joint name="joint_2" pos="0 0 0" axis="-0.888471 0.2908 0.355041"/>
+        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="link_2"/>
+        <body name="link_3" pos="-0.024558 0.12737 -0.16578" quat="0.0535575 0.229985 0.429149 0.87182" gravcomp="0">
+          <inertial pos="0.00457049 0.0962525 0.00395442" quat="0.680665 0.682882 0.19338 -0.181579" mass="0.0785942" diaginertia="0.012387 0.0123869 6.66166e-05"/>
+          <joint name="joint_3" pos="0 0 0" axis="1 0 0"/>
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="link_3"/>
+          <body name="link_4" pos="0.0088 -0.1588 0" quat="0.707105 -0.707108 0 0" gravcomp="0">
+            <inertial pos="-0.00422951 -0.00395442 0.255057" quat="0.964174 0.00156737 -0.00834465 0.265136" mass="0.0785942" diaginertia="0.012387 0.0123869 6.66166e-05"/>
+            <joint name="joint_4" pos="0 0 0" axis="0 0 -1"/>
+            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="link_4"/>
+            <body name="link_5" pos="0 0 -0.1053" quat="1.3498e-11 -3.67321e-06 1 -3.67321e-06" gravcomp="0">
+              <inertial pos="0.00422951 -0.00395442 -0.360352" quat="0.964174 -0.00156737 -0.00834465 -0.265136" mass="0.0785942" diaginertia="0.012387 0.0123869 6.66166e-05"/>
+              <joint name="joint_5" pos="0 0 0" axis="-1 0 0"/>
+              <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="link_5"/>
+              <body name="link_6" pos="-0.0039 0 0.1636" quat="0.707105 -0.707108 0 0" gravcomp="0">
+                <inertial pos="1.10581e-05 -0.00932339 6.35624e-06" quat="0.682288 -0.185732 -0.185738 0.682267" mass="0.0279702" diaginertia="1.45745e-05 7.63778e-06 7.62558e-06"/>
+                <joint name="joint_6" pos="0 0 0" axis="0 -1 0"/>
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="link_6"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+define Actuator information here
+
+Define Keyframe here 
+</mujoco>
+
